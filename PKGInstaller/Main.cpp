@@ -39,8 +39,8 @@ std::map<Commands, string> getTypeProject = { {
 	REACT, "/React",
 },
 {
-	NEXT, "/Next"
-};
+	NEXT, "/Next",
+} };
 
 string Type(Commands command) {
 	return getTypeProject[command];
