@@ -1,6 +1,12 @@
 #include <iostream>
+#include <map>
 
 using namespace std;
+
+enum Commands {
+	REACT,
+	NEXT,
+};
 
 template<class T>
 
@@ -29,6 +35,17 @@ public:
 
 bool isReady = false;
 
+std::map<Commands, string> getTypeProject = { {
+	REACT, "/React",
+},
+{
+	NEXT, "/Next"
+};
+
+string Type(Commands command) {
+	return getTypeProject[command];
+}
+
 int main() {
 
 	std::string typeApp;
@@ -39,6 +56,12 @@ int main() {
 	cout << "Enter Kind Of Application: " << endl;
 	cin >> typeApp;
 
+
+
+	Commands commandOne = REACT;
+	Commands commandTwo = NEXT;
+
+
 	while (!isReady) {
 
 
@@ -46,7 +69,7 @@ int main() {
 			break;
 		}
 
-		if (typeApp == "/React") {
+		if (typeApp == Type(commandOne)) {
 
 			system("npx nano-react-app myapp");
 			command.getCommandName("npx nano-react-app myapp");
@@ -54,9 +77,12 @@ int main() {
 			isReady = true;
 		}
 
-		if (typeApp == "/Next") {
+		if (typeApp == Type(commandTwo)) {
+
+			std::string cmd = Type(commandTwo);
 
 			system("npx create-next-app myapp");
+
 			command.getCommandName("npx create-next-app myapp");
 
 			isReady = true;
