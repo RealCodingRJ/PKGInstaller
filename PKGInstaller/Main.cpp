@@ -4,14 +4,20 @@ using namespace std;
 
 template<class T>
 
+// Template like Generic in Java or Any Language that is OOP
+
 class Command {
 
 private:
-
+	
+	//Private Constructor
 	T cmd;
+
 
 public:
 
+	// Public Construcutors
+	
 	T getCommandName(T nameCommand) {
 
 		cout << "Command Name: " << nameCommand << endl;
